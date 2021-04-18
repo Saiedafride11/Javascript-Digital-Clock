@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        #clock{
+            width: 900px;
+            margin: 50px auto;
+            text-align: center;
+            font-size:150px;
+            color:red;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"> 
+	
+	</div>
+
+    <script>
+      function digitalClock() {
+        var time = new Date();
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        var session = "AM"
+
+       if(hours > 12){
+           hours = hours - 12;
+           session = "PM"
+       }
+
+        hours = ( hours < 10) ? "0" + hours : hours;
+        minutes = ( minutes < 10) ? "0" + minutes : minutes;
+        seconds = ( seconds < 10) ? "0" + seconds : seconds;
+
+        document.getElementById('clock').innerText = hours + ":" + minutes + ":" + seconds + " " + session;
+      }
+
+      setInterval(digitalClock, 1000);
+
+    </script>
+</body>
+</html>
